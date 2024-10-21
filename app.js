@@ -141,3 +141,87 @@ game.catchPokemon = function (pokemonObj){
 game.catchPokemon(pokemon[23])
 console.log(game)
 
+/*
+Exercise 11
+1. Copy the `catchPokemon` method that you just wrote above, and paste it below. Modify it so that it also decreases the number of pokeballs in your inventory each time you catch a Pokémon.
+2. How will you find and update the quantity of pokeballs in the `game.items` array?
+
+Tips:
+For this exercise, it's okay to have a negative number of pokeballs.
+After updating the method, call it and pass in a Pokemon object of your choice from the `pokemon` data to catch it.
+Also, log the `game.items` array to confirm that the pokeball quantity is being decremented.
+
+Solve Exercise 11 here:
+*/
+
+game.catchPokemon = function (pokemonObj){
+  game.party.push(pokemonObj)
+  game.items.forEach (ball => {
+    if(ball.name === "pokeball"){
+    ball.quantity --
+    }
+  })
+}
+
+game.catchPokemon(pokemon[77])
+game.catchPokemon(pokemon[76])
+
+console.log(game)
+
+// why am i logging "catchPokemon: [Function(anonymous)]"
+
+/*
+Exercise 12
+1. Similar to Exercise 6, now complete gyms with a difficulty below 6. How will you approach this?
+ (change the value of `complete` in the qualifying objects from false to true).
+
+Solve Exercise 12 here:
+*/
+
+game.gyms.forEach (gym => {
+  if (gym.difficulty < 6){
+gym.completed = true
+  }
+})
+
+console.log(game)
+
+/*
+Exercise 13
+1. Create a `gymStatus` method in `game` to tally completed and incomplete gyms.
+2. How will you iterate through the `gyms` array and update the tally? Remember to log the final tally.
+
+This method should:
+  - Not accept any arguments.
+  - Initially create a constant `gymTally`, which is an object that has two 
+    properties: `completed` and `incomplete`, both of which are initially set to 0.
+  - Iterate through the objects in the `game.gyms` array and update the 
+    properties on `gymTally` as follows: 
+    - `completed` should count how many gyms in the array have a value of `true` 
+      for their `completed` property. 
+    - `incomplete` should count how many gyms in the array have a value of 
+      `false` for their `completed` property.
+  - Log the value of `gymTally`.
+  - The method should not return anything.
+
+For example, if five gym objects have a value of `true` on their `completed` property and three gym objects have a value of `false` on their `completed` property, the logged value would be: `{ completed: 5, incomplete: 3 }`.
+
+Solve Exercise 13 here:
+*/
+
+const gymTally = {
+  completed: 0,
+ incompleted: 0,
+}
+
+game.gymStatus = function (){
+  game.gyms.forEach (gym => {
+    if (gym.completed === true){
+  gymTally.completed++
+    } else
+    gymTally.incompleted++
+  })
+  
+}
+game.gymStatus()
+console.log(gymTally)
