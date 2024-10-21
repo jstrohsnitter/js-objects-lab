@@ -57,7 +57,7 @@ Solve Exercise 5 here:
 
 game.party = [game.party, pokemon[150], pokemon[149], pokemon[128], pokemon[64]]
 
-console.log(game)
+// console.log(game)
 
 /*
 Exercise 6
@@ -74,7 +74,7 @@ gym.completed = true
   }
 })
 
-console.log(game)
+// console.log(game)
 
 /*
 Exercise 7
@@ -95,7 +95,7 @@ Solve Exercise 7 here:
 
 game.party.splice(0, 1, pokemon[4])
 
-console.log(game)
+// console.log(game)
 
 /*
 Exercise 8
@@ -139,7 +139,7 @@ game.catchPokemon = function (pokemonObj){
   game.party.push(pokemonObj)
 }
 game.catchPokemon(pokemon[23])
-console.log(game)
+// console.log(game)
 
 /*
 Exercise 11
@@ -166,7 +166,7 @@ game.catchPokemon = function (pokemonObj){
 game.catchPokemon(pokemon[77])
 game.catchPokemon(pokemon[76])
 
-console.log(game)
+// console.log(game)
 
 // why am i logging "catchPokemon: [Function(anonymous)]"
 
@@ -184,7 +184,7 @@ gym.completed = true
   }
 })
 
-console.log(game)
+// console.log(game)
 
 /*
 Exercise 13
@@ -251,3 +251,28 @@ game.party.forEach (count =>{
   }
 game.partyCount()
 console.log(inParty)
+
+/*
+Exercise 15
+1. Now, complete gyms with a difficulty below 8. Reflect on how this is similar to or different from the previous gym exercises.
+(change the value of `complete` in the qualifying objects from false to true).
+
+Solve Exercise 15 here:
+*/
+
+
+game.gyms.forEach (gym => {
+  if (gym.difficulty < 8){
+gym.completed = true
+  }
+})
+
+/*
+Exercise 16
+1. Log the entire `game` object to the console. Take a moment to review the changes you've made throughout the exercises.
+
+
+Solve Exercise 16 here:
+*/
+
+console.log(game)
