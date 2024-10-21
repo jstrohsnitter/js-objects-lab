@@ -225,3 +225,29 @@ game.gymStatus = function (){
 }
 game.gymStatus()
 console.log(gymTally)
+
+/*
+Exercise 14
+1. Add a `partyCount` method to `game` that counts the number of Pokémon in your party.
+
+This method should:
+  - Not accept any arguments.
+  - Count the number of Pokemon in the party.
+  - return the found number of Pokemon in the party.
+
+Solve Exercise 14 here:
+*/
+
+const inParty = {
+  Total_Pokemon_in_Party: 0,
+}
+
+game.partyCount = function(){
+  // console.log(game.party.length)
+game.party.forEach (count =>{
+  if(count.hp >= 0)
+    inParty.Total_Pokemon_in_Party++
+})
+  }
+game.partyCount()
+console.log(inParty)
