@@ -275,7 +275,7 @@ Exercise 16
 Solve Exercise 16 here:
 */
 
-console.log(game)
+// console.log(game) COMENTED OUT FOR CLARITY IN FOLLOWING EXERCISES WHEN RUNNING CODE
 
 /*
 Exercise 17
@@ -290,3 +290,52 @@ Solve Exercise 17 here:
 game.party.sort((a, b) => b.hp - a.hp) // Sorting the game.party starting with the highest hp, and moving to lowest
   
 // console.log(game)
+
+/*
+Exercise 18
+Add a new property to the `game` object called `collection` and initialize its value to an empty array.
+
+Copy the `catchPokemon` method you wrote in Exercise Twelve and paste it below. Modify it so that:
+  - Ensure that no more than six Pokemon can be in the party at any time. 
+    Excess Pokemon should be placed in the `game.collection` array.
+  - It's up to you how to distribute Pokemon in a situation where more than six 
+    would be placed into the `game.party` array.
+
+Again, for this exercise, it's okay to have a negative number of pokeballs.
+
+After updating the method, use it by calling it and passing in a pokemon object of your choice from the `pokemon` data to catch it.
+
+Also, log the `game.items` array to confirm that the pokeball quantity is being decremented.
+
+Solve Exercise 18 here:
+*/
+
+
+game.collection = []
+game.catchPokemon = function (pokemonObj){
+  game.party.push(pokemonObj)
+  game.items.forEach (ball => {
+    if(ball.name === "pokeball"){
+    ball.quantity --
+    }
+  })
+  game.party.sort((a, b) => b.hp - a.hp) 
+  if (game.party.length > 6) {
+    game.collection.push(game.party.splice(6))
+  }
+  // ================================
+  // game.party.forEach (partyMon => {
+  //   if (partyMon.length > 6) {
+  //   partyMon.splice(5) 
+  // game.collection.push(excessMon)
+  //   }
+  // })
+  //wrote this initially to iterate over the whole function, but not necissary. the length function checks the length of the whole array, it then takes the excess values via splice, and pushes to the new array collection
+  //==================================
+}
+
+game.catchPokemon(pokemon[100])
+// console.log(game.collection) called to see if the function is working, what is in the array
+console.log(game.items)
+// console.log(game) called to see how the game looks
+
